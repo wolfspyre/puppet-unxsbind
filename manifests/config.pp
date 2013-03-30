@@ -18,18 +18,18 @@ class idns::config (
       }#End init file
     }#end configfiles should be present case
     absent: {
-#      file { 'unxsbind_named_conf':
-#        ensure  => 'absent',
-#        path    => '/usr/local/idns/named.conf',
-#      }#end idnsd.conf file
-#      file { 'unxsbind_initscript':
-#        ensure => 'absent',
-#        path   => '/etc/init.d/unxsbind'
-#      }#End init file
-#      file {'idns_logfile':
-#        ensure  => 'absent',
-#        path    => $logfile,
-#      }#end idns logfile file
+      file { 'unxsbind_named_conf':
+        ensure  => 'present',
+        path    => '/usr/local/idns/named.conf',
+      }#end idnsd.conf file
+      file { 'unxsbind_initscript':
+        ensure => 'absent',
+        path   => '/etc/init.d/unxsbind'
+      }#End init file
+      file {'idns_logfile':
+        ensure  => 'absent',
+        path    => $logfile,
+      }#end idns logfile file
     }#end configfiles should be absent case
     default: {
       notice "idns::ensure has an unsupported value of ${idns::ensure}."

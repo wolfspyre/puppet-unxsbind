@@ -20,7 +20,7 @@ describe 'idns', :type => :class do
               }
             end
             it {
-              if (yesplease == 'enabled')
+              if ((yesplease == 'enabled') or (yesplease == 'active'))
                 should contain_service('unxsbind')
               else
                 should_not contain_service('unxsbind')
